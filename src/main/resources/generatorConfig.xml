@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<context id="sso" targetRuntime="MyBatis3">
+		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" />
+		</plugin>
+		<plugin type="org.duoku.groom.mybatis.plugin.PaginationPlugin" />  
+		 <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.5.30:3306/zysso?zeroDateTimeBehavior=convertToNull&amp;amp;useUnicode=true&amp;characterEncoding=UTF-8" userId="dev" password="dev" />
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.ezhuanzhen.api.dao.mybatis.model" targetProject="src/main/java">
+			<property name="enableSubPackages" value="false" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="mappers" targetProject="src/main/resources/mybatis">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.ezhuanzhen.api.dao.mybatis.mapper" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		
+		<table tableName="authInfo" domainObjectName="authInfo">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" /> 
+			<!-- <property name="useActualColumnNames" value="true" /> -->
+		</table>
+		<!-- 
+		<table tableName="mb_optiontemplates" domainObjectName="MbOptionTemplates">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" /> 
+		</table>
+		<table tableName="mb_paperstemplates" domainObjectName="MbPapersTemplates">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" /> 
+		</table>
+		<table tableName="mb_questionstemplates" domainObjectName="MbQuestionsTemplates">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" /> 
+		</table> -->
+       
+	</context>
+</generatorConfiguration>

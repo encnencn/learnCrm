@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta charset="utf-8" />
+<title>客户申请</title>
+
+<meta name="description" content="" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+<!-- bootstrap & fontawesome -->
+<link rel="stylesheet" href="../assets/css/bootstrap.css" />
+<link rel="stylesheet" href="../assets/css/font-awesome.css" />
+
+<!-- page specific plugin styles -->
+
+<!-- text fonts -->
+<link rel="stylesheet" href="../assets/css/ace-fonts.css" />
+
+<!-- ace styles -->
+<link rel="stylesheet" href="../assets/css/ace.css"
+	class="ace-main-stylesheet" id="main-ace-style" />
+
+<!--[if lte IE 9]>
+    <link rel="stylesheet" href="../assets/css/ace-part2.css" class="ace-main-stylesheet" />
+    <![endif]-->
+
+<!--[if lte IE 9]>
+    <link rel="stylesheet" href="../assets/css/ace-ie.css" />
+    <![endif]-->
+<link rel="stylesheet" href="../assets/css/common.css" />
+<!-- inline styles related to this page -->
+<link rel="stylesheet" href="../assets/css/laypage.css">
+<!-- ace settings handler -->
+<script src="../assets/js/ace-extra.js"></script>
+
+<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+<!--[if lte IE 8]>
+    <script src="../assets/js/html5shiv.js"></script>
+    <script src="../assets/js/respond.js"></script>
+    <![endif]-->
+</head>
+
+<body class="no-skin">
+	<!-- #section:basics/navbar.layout -->
+	
+
+		<!-- /section:basics/sidebar -->
+		<div class="main-content">
+			<div class="main-content-inner">
+				<div class="breadcrumbs" id="breadcrumbs">
+				<script type="text/javascript">
+					try {
+						ace.settings.check('breadcrumbs', 'fixed')
+					} catch (e) {
+					}
+				</script>
+
+				<ul class="breadcrumb">
+					<li class="active">
+						客户申请
+					</li>
+					
+					<li>
+					<a href="" id="refresh"><i class="fa fa-refresh" ></i> </a>
+					</li>
+				</ul>
+				<!-- /.breadcrumb -->
+			</div>
+
+				<!-- /section:basics/content.breadcrumbs -->
+				<div class="page-content" id="role-manage-role">
+					<div class="row">
+						<div class="col-xs-12">
+							<!-- PAGE CONTENT BEGINS -->
+							<!-- #section:elements.tab.option -->
+							<div class="tabbable dataTables_wrapper form-inline table-responsive">
+								<div class="row row-space modal-top-customer-addView">
+									<div class="col-xs-12">
+									<div class="col-xs-1" style="text-align: right;">
+										<!-- Button trigger modal -->
+										<button type="button" class="btn btn-xs btn-success btn-success-addView"
+											data-toggle="modal" data-target="#myModal1">新增</button>
+											
+									</div>
+									<div class="col-xs-1" style="text-align: left;">
+										<!-- Button trigger modal -->
+										
+											<button type="button" class="btn btn-xs btn-success"
+											data-toggle="modal" data-target="#myModal3">查询</button>
+									</div>
+									<div class="col-xs-10"></div>
+									</div>
+								</div>
+								<table class="table table-striped table-bordered table-hover">
+									<thead>
+										<tr>
+											<!-- <th><input type="checkbox"></th> -->
+											<th>序号</th>
+											<th>客户名称</th>
+											<th>客户编号</th>
+											<th>客户担当</th>
+											<th>事物担当者</th>
+											<th>申请时间</th>
+											<th>状态</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody id="rights_list">
+									<!-- 此处是客户列表 -->
+									</tbody>
+								</table>
+								<!--分页-->
+								<div class="row">
+									<div class="col-xs-6">
+										<div class="dataTables_info" role="status" aria-live="polite"
+											id="rights_allPage">显示5条记录，共5条</div>
+									</div>
+									<div class="col-xs-6">
+										<div class="dataTables_paginate paging_simple_numbers"
+											id="rights_page">
+											<ul class="pagination">
+												<li class="paginate_button previous disabled"
+													aria-controls="dynamic-table" tabindex="0"><a href="#">上一页</a>
+												</li>
+												<li class="paginate_button active"
+													aria-controls="dynamic-table" tabindex="0"><a href="#">1</a>
+												</li>
+												<li class="paginate_button " aria-controls="dynamic-table"
+													tabindex="0"><a href="#">2</a></li>
+												<li class="paginate_button " aria-controls="dynamic-table"
+													tabindex="0"><a href="#">3</a></li>
+												<li class="paginate_button next"
+													aria-controls="dynamic-table" tabindex="0"><a href="#">下一页</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- /section:elements.tab.option -->
+							<!-- PAGE CONTENT ENDS -->
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.page-content -->
+			</div>
+		</div>
+		<!-- /.main-content -->
+
+		<!-- <div class="footer">
+			<div class="footer-inner">
+				#section:basics/footer
+				<div class="footer-content">
+					<span class="bigger-120"> 版权所有 2015 <span
+						class="blue bolder">zhongyinginfo.com</span> 西安众盈医疗信息科技有限公司
+					</span>
+				</div>
+
+				/section:basics/footer
+			</div>
+		</div> -->
+
+		<!-- <a href="#" id="btn-scroll-up"
+			class="btn-scroll-up btn btn-sm btn-inverse"> <i
+			class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+		</a> -->
+	
+	<!-- /.main-container -->
+	<!-- Modal5 添加月报 -->
+	<div class="modal fade" id="myModal5" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel3" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content modal-content-search">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">关闭</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel3">添加</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<div class="form-group-visitView">
+								<!-- 此处是点击修改弹出页面的代码 -->
+								<label class="col-sm-3 control-label no-padding-right"
+									for="form-field-3"> 回访日期 </label>
+								<div class="col-sm-9">
+									<input type="text" id="form-field-visitDate" style="width:315px;"
+									class="col-xs-10 col-sm-8" onfocus="HS_setDate(this)">
+								</div>
+							</div>
+							</br>
+							</br>
+							<div class="form-group-visitView">
+								<!-- 此处是点击修改弹出页面的代码 -->
+								<label class="col-sm-3 control-label no-padding-right"
+									for="form-field-4">回访方式 </label>
+								<div class="col-sm-9">
+									<select style="width:315px;" id="visitType">
+									  <option value="1">电话回访</option>
+									  <option value="2">面谈</option>
+									  <option value="3">邮件</option>
+									</select>
+								</div>
+							</div>
+							</br>
+							</br>
+							<div class="form-group-visitView">
+								<!-- 此处是点击修改弹出页面的代码 -->
+								<label class="col-sm-3 control-label no-padding-right"
+									for="form-field-1"> 回访主题 </label>
+								<div class="col-sm-9">
+									<input type="text" id="form-field-visitTitle" placeholder="请输入回访主题"
+										class="col-xs-10 col-sm-9">	
+								</div>
+							</div>
+							</br>
+							</br>
+							<div class="form-group-visitView">
+								<!-- 此处是点击修改弹出页面的代码 -->
+								<label class="col-sm-3 control-label no-padding-right"
+									for="form-field-2"> 内容概述 </label>
+								<div class="col-sm-9">
+									<textarea  id="form-field-content" placeholder="请输入回访内容" style="width:315px;height:100px;"></textarea>		
+								</div>
+							</div>
+		
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<div class="col-sm-9"></div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer modal-footer-addYuebao">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary btn-customer-addYuebao">添加</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal1 添加客户 -->
+	
+	<div class="modal fade bs-example-modal-lg" id="myModal1" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+		<div class="modal-dialog1 modal-lg">
+			<div class="modal-content modal-content-add">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">关闭</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel1">新增</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+
+							<div class="col-sm-12">
+
+								<label class="col-sm-2 control-label  no-padding-right"
+									for="form-field-1"> 客户名称
+								 </label> 
+								 <span class="col-sm-4">
+									<input type="text" id="form-field-1" placeholder="客户名称"
+									class="col-xs-10 col-sm-8">
+									<label  class="col-sm-4 control-label no-padding-left name-exist"  style="color:red;font-size: smaller;text-align:center">
+										*
+										<a style="color:green;display:none"   id="add-name-true" >✔</a>
+										<a style="color:red;display:none"   id="add-name-false" >✘</a> 
+									</label>
+								</span> 
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户编号 
+									</label> 
+									<span class="col-sm-4">
+									<input type="text" id="form-field-2" placeholder="客户编号"
+									class="col-xs-10 col-sm-8" readonly="readonly" >
+									<label  class="col-sm-4 control-label no-padding-left code-exist" style="color:red;font-size: smaller;text-align:center">
+										<a style="color:green;display:none"   id="add-code-true" >✔</a>
+										<a style="color:red;display:none"   id="add-code-false" >✘</a>
+									</label>
+								</span>
+
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1">
+									 省市
+								</label>
+								<span class="col-sm-4">
+									<input type="text" id="form-field-3" placeholder="省市"
+										class="col-xs-10 col-sm-8">
+									<label  class="col-sm-4 control-label no-padding-left "  style="color:red;font-size: smaller;text-align:center">
+										*
+										<a style="color:green;display:none"   id="add-district-true" >✔</a>
+										<a style="color:red;display:none"   id="add-district-false" >✘</a> 
+									</label>
+								</span> 
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1">
+									 客户担当者
+								 </label>
+								  <span class="col-sm-4">
+									<input type="text" id="form-field-4" placeholder="客户担当者"
+										class="col-xs-10 col-sm-8 ">
+									<label  class="col-sm-4 control-label no-padding-left "  style="color:red;font-size: smaller;text-align:center">
+										*
+										<a style="color:green;display:none"   id="add-linkPersonName-true" >✔</a>
+										<a style="color:red;display:none"   id="add-linkPersonName-false" >✘</a> 
+									</label>
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1">
+									 客户担当者职务 
+								</label> 
+								<span class="col-sm-4">
+									<input type="text" id="form-field-5" placeholder="客户担当者职务"
+									class="col-xs-10 col-sm-8">
+									<label  class="col-sm-4 control-label no-padding-left "  style="color:red;font-size: smaller;text-align:center">
+										*
+										<a style="color:green;display:none"   id="add-linkPersonDuty-true" >✔</a>
+										<a style="color:red;display:none"   id="add-linkPersonDuty-false" >✘</a> 
+									</label>
+								</span> 
+								
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 
+									客户电话
+								 </label>
+								<span class="col-sm-4">
+									<input type="text" id="form-field-6" placeholder="客户电话 "
+									class="col-xs-10 col-sm-8">
+									<label  class="col-sm-4 control-label no-padding-left"  style="color:red;font-size: smaller;text-align:center">
+										*
+										<a style="color:green;display:none"   id="add-tel-true" >✔</a>
+										<a style="color:red;display:none"   id="add-tel-false" >✘</a> 
+									</label>
+								</span>
+
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1">
+									 客户地址
+								</label> 
+								<span class="col-sm-4">
+									<input type="text" id="form-field-7" placeholder=" 客户地址"
+										class="col-xs-10 col-sm-8">
+									<label  class="col-sm-4 control-label no-padding-left "  style="color:red;font-size: smaller;text-align:center">
+										*
+										<a style="color:green;display:none"   id="add-address-true" >✔</a>
+										<a style="color:red;display:none"   id="add-address-false" >✘</a> 
+									</label>
+								</span> 
+								
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 
+									客户传真 
+								</label>
+								<span class="col-sm-4">
+									<input type="text" id="form-field-8" placeholder="客户传真"
+										class="col-xs-10 col-sm-8">
+									<label  class="col-sm-4 control-label no-padding-left "  style="color:red;font-size: smaller;text-align:center">
+										*
+										<a style="color:green;display:none"   id="add-fax-true" >✔</a>
+										<a style="color:red;display:none"   id="add-fax-false" >✘</a> 
+									</label>
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 
+									客户Email 
+								</label> 
+								<span class="col-sm-4">
+									<input type="text" id="form-field-9" placeholder="客户Email"
+									class="col-xs-10 col-sm-8">
+									<label  class="col-sm-4 control-label no-padding-left "  style="color:red;font-size: smaller;text-align:center">
+										*
+										<a style="color:green;display:none"   id="add-email-true" >✔</a>
+										<a style="color:red;display:none"   id="add-email-false" >✘</a> 
+									</label>
+								</span> 
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1">
+									 公司URL 
+								</label> 
+								<span class="col-sm-4">
+									<input type="text" id="form-field-10" placeholder="公司URL"
+									class="col-xs-10 col-sm-8">
+									<label  class="col-sm-4 control-label no-padding-left "  style="color:red;font-size: smaller;text-align:center">
+										*
+										<a style="color:green;display:none"   id="add-compayUrl-true" >✔</a>
+										<a style="color:red;display:none"   id="add-compayUrl-false" >✘</a> 
+									</label>
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 公司产品 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-11" placeholder="公司产品 "
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 现使用设备 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-12" placeholder=" 现使用设备 "
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 加工工艺</label> <span class="col-sm-4">
+									<input type="text" id="form-field-13" placeholder="加工工艺"
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 设备问题 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-14" placeholder="设备问题"
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 机械要求 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-15" placeholder="机械要求"
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 计划特点 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-16" placeholder="计划特点"
+									class="col-xs-10 col-sm-8">
+								</span>
+
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 预定日程 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-17" placeholder="预定日程"
+									class="col-xs-10 col-sm-8 " onfocus="HS_setDate(this)">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 签约日期</label> <span class="col-sm-4">
+									<input type="text" id="form-field-18" placeholder="签约日期"
+									class="col-xs-10 col-sm-8" onfocus="HS_setDate(this)">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 开始生产时间</label> <span class="col-sm-4">
+									<input type="text" id="form-field-19" placeholder="开始生产时间"
+									class="col-xs-10 col-sm-8" onfocus="HS_setDate(this)">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 设备到达时间 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-20" placeholder="设备到达时间"
+									class="col-xs-10 col-sm-8" onfocus="HS_setDate(this)">
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 预算金额 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-21" placeholder="预算金额"
+									class="col-xs-10 col-sm-8">
+									<label  class="col-sm-4 control-label no-padding-left "  style="color:red;font-size: smaller;text-align:center">
+										
+										<a style="color:green;display:none"   id="add-budgetAmount-true" >✔</a>
+										<a style="color:red;display:none"   id="add-budgetAmount-false" >✘</a> 
+									</label>
+								</span> 
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 预算状态</label> 
+								<span class="col-sm-4">
+									
+									<select id="form-field-22"class="col-xs-10 col-sm-8">
+ 									 <option value=0>不充足</option>
+  								    <option value=1>充足</option>
+ 									 <option value=2>未拨款</option>
+								</select>
+								</span> 
+								
+									
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 机型</label> <span class="col-sm-4"> <input
+									type="text" id="form-field-23" placeholder="机型"
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 台数 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-24" placeholder="台数"
+									class="col-xs-10 col-sm-8">
+									<label  class="col-sm-4 control-label no-padding-left "  style="color:red;font-size: smaller;text-align:center">
+										
+										<a style="color:green;display:none"   id="add-num-true" >✔</a>
+										<a style="color:red;display:none"   id="add-num-false" >✘</a> 
+									</label>
+								</span>
+								
+							</div>
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 其他设备</label> <span class="col-sm-4">
+									<input type="text" id="form-field-25" placeholder="其他设备"
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 加工工序 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-26" placeholder="加工工序"
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 工件搬运 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-27" placeholder="工件搬运"
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 夹具周边 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-28" placeholder="夹具周边"
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 刀具 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-29" placeholder="刀具"
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 工件图纸 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-30" placeholder="工件图纸"
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 样件 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-31" placeholder="样件"
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 工艺方案 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-32" placeholder="工艺方案"
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 加工节拍 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-33" placeholder="加工节拍"
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 报价单 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-34" placeholder="报价单 "
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 代理点备注</label> <span class="col-sm-4">
+									<input type="text" id="form-field-35" placeholder="代理点备注"
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 预计 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-36" placeholder="预计"
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户报备状态 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-37" readonly="readonly" placeholder="未审核"
+									class="col-xs-10 col-sm-8" value="0">
+								</span> 
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 事物方担当者 </label> <span class="col-sm-4">
+									<select  id="form-field-38" 
+									class="col-xs-10 col-sm-8 alltruenameAdd "></select>
+									<label  class="col-sm-4 control-label no-padding-left true-null" style="color:red;font-size: smaller;">
+										*
+									</label>
+								</span>
+							</div>
+
+						</div>
+
+					</form>
+				</div>
+				<div class="modal-footer modal-footer-customer-add">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" id="submit" class="btn btn-primary btn-customer-add">提交</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- Modal2 修改客户 -->
+	<div class="modal fade bs-example-modal-lg" id="myModal2" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+		<div class="modal-dialog1 modal-lg">
+			<div class="modal-content modal-content-update">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">关闭</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel2">修改</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							
+							<input type="text" hidden="hidden" id="form-field-0" placeholder="客户ID"
+									class="col-xs-10 col-sm-8">
+							
+							<div class="col-sm-12">
+
+								<label class="col-sm-2 control-label  no-padding-right"
+									for="form-field-1"> 客户名称 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-1"
+									class="col-xs-10 col-sm-8">
+									<label  class="col-sm-4 control-label no-padding-left name-exist" style="color:red;font-size: smaller;">
+									*
+									<a style="color:green;display:none"   id="update-name-true" >✔</a>
+									<a style="color:red;display:none"   id="update-name-false" >✘</a>
+									</label>
+								</span> 
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户编号 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-2"
+									class="col-xs-10 col-sm-8" readonly="readonly" >
+									
+								</span>
+
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 省市 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-3" 
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户担当者 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-4" 
+									class="col-xs-10 col-sm-8 ">
+									<label  class="col-sm-4 control-label no-padding-left link-null" style="color:red;font-size: smaller;">
+									*
+									</label>
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户担当者职务 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-5" 
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 
+									客户电话 
+									</label>
+									 <span class="col-sm-4">
+									<input type="text" id="form-field-6"
+									class="col-xs-10 col-sm-8">
+									<label  class="col-sm-4 control-label no-padding-left"  style="color:red;font-size: smaller;text-align:center">
+										*
+										<a style="color:green;display:none"   id="update-tel-true" >✔</a>
+										<a style="color:red;display:none"   id="update-tel-false" >✘</a> 
+									</label>
+								</span>
+
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户地址 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-7" 
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户传真 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-8" 
+									class="col-xs-10 col-sm-8">
+									<label  class="col-sm-4 control-label no-padding-left "  style="color:red;font-size: smaller;text-align:center">
+										*
+										<a style="color:green;display:none"   id="update-fax-true" >✔</a>
+										<a style="color:red;display:none"   id="update-fax-false" >✘</a> 
+									</label>
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户Email </label> <span class="col-sm-4">
+									<input type="text" id="form-field-9" 
+									class="col-xs-10 col-sm-8">
+									<label  class="col-sm-4 control-label no-padding-left "  style="color:red;font-size: smaller;text-align:center">
+										*
+										<a style="color:green;display:none"   id="update-email-true" >✔</a>
+										<a style="color:red;display:none"   id="update-email-false" >✘</a> 
+									</label>
+								</span> 
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 公司URL </label> 
+									<span class="col-sm-4">
+									<input type="text" id="form-field-10" 
+									class="col-xs-10 col-sm-8">
+									<label  class="col-sm-4 control-label no-padding-left "  style="color:red;font-size: smaller;text-align:center">
+										*
+										<a style="color:green;display:none"   id="update-compayUrl-true" >✔</a>
+										<a style="color:red;display:none"   id="update-compayUrl-false" >✘</a> 
+									</label>
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 公司产品 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-11" 
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 现使用设备 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-12" 
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 加工工艺</label> <span class="col-sm-4">
+									<input type="text" id="form-field-13" 
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 设备问题 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-14" 
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 机械要求 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-15" 
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 计划特点 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-16" 
+									class="col-xs-10 col-sm-8">
+								</span>
+
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 预定日程 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-17" 
+									class="col-xs-10 col-sm-8 " onfocus="HS_setDate(this)">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 签约日期</label> <span class="col-sm-4">
+									<input type="text" id="form-field-18" 
+									class="col-xs-10 col-sm-8" onfocus="HS_setDate(this)">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 开始生产时间</label> <span class="col-sm-4">
+									<input type="text" id="form-field-19" 
+									class="col-xs-10 col-sm-8" onfocus="HS_setDate(this)">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 设备到达时间 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-20" 
+									class="col-xs-10 col-sm-8" onfocus="HS_setDate(this)">
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 预算金额 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-21"
+									class="col-xs-10 col-sm-8">
+								</span> 
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 预算状态</label>
+									
+								<span class="col-sm-4">
+								<select id="form-field-22" class="col-xs-10 col-sm-8">
+ 									 <option value=0>不充足</option>
+  								    <option value=1>充足</option>
+ 									 <option value=2>未拨款</option>
+								</select>
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 机型</label> <span class="col-sm-4"> <input
+									type="text" id="form-field-23" 
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 台数 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-24"
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 其他设备</label> <span class="col-sm-4">
+									<input type="text" id="form-field-25"
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 加工工序 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-26" 
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 工件搬运 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-27" 
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 夹具周边 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-28" 
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 刀具 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-29" 
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 工件图纸 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-30"
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 样件 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-31" 
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 工艺方案 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-32" 
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 加工节拍 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-33" 
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 报价单 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-34" 
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 代理点备注</label> <span class="col-sm-4">
+									<input type="text" id="form-field-35" 
+									class="col-xs-10 col-sm-8">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 预计 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-36" 
+									class="col-xs-10 col-sm-8">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户报备状态 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-37" readonly="readonly"
+									class="col-xs-10 col-sm-8" value="0">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 事物方担当者 </label> <span class="col-sm-4">
+									<select  id="form-field-38" 
+									class="col-xs-10 col-sm-8 alltruenameUpdate "></select>
+									<label  class="col-sm-4 control-label no-padding-left true-null" style="color:red;font-size: smaller;"></label>
+								</span>
+							</div>
+
+						</div>
+
+					</form>
+				</div>
+				<div class="modal-footer modal-footer-customer-update">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button"  class="btn btn-primary btn-customer-update">提交</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Modal3 查询客户 -->
+	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel3" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content modal-content-search">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">关闭</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel3">查询</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<div class="form-group-updateView">
+								<!-- 此处是点击修改弹出页面的代码 -->
+								<label class="col-sm-3 control-label no-padding-right"
+									for="form-field-1"> 客户名称 </label>
+
+								<div class="col-sm-9">
+									<input type="text" id="form-field-1" placeholder="请输入客户名称/客户编号/客户担当/事物担当"
+										class="col-xs-10 col-sm-9">
+									
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<div class="col-sm-9"></div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer modal-footer-search">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary btn-customer-search">查询</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+<!-- Modal4 客户详情 -->
+	<div class="modal fade bs-example-modal-lg" id="myModal4" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+		<div class="modal-dialog1 modal-lg">
+			<div class="modal-content modal-content-detail">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">关闭</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel2">详情</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" role="form" >
+						<div class="form-group">
+							
+							<input type="text" hidden="hidden" id="form-field-0" placeholder="客户ID"
+									class="col-xs-10 col-sm-8" readonly="readonly">
+							<div class="col-sm-12">
+
+								<label class="col-sm-2 control-label  no-padding-right"
+									for="form-field-1" > 客户名称 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-1"
+									class="col-xs-10 col-sm-8" readonly="readonly">
+									<label  class="col-sm-4 control-label no-padding-left name-exist" style="color:red;"></label>
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户编号 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-2"
+									class="col-xs-10 col-sm-8" readonly="readonly">
+									<label  class="col-sm-4 control-label no-padding-left"  style="color:red;"></label>
+								</span>
+
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 省市 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-3" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户担当者 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-4" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户担当者职务 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-5" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户电话 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-6"
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span>
+
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户地址 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-7" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户传真 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-8" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户Email </label> <span class="col-sm-4">
+									<input type="text" id="form-field-9" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 公司URL </label> <span class="col-sm-4">
+									<input type="text" id="form-field-10" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 公司产品 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-11" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 现使用设备 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-12" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 加工工艺</label> <span class="col-sm-4">
+									<input type="text" id="form-field-13" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 设备问题 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-14" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 机械要求 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-15" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 计划特点 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-16" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span>
+
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 预定日程 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-17" 
+									class="col-xs-10 col-sm-8 "  readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 签约日期</label> <span class="col-sm-4">
+									<input type="text" id="form-field-18" 
+									class="col-xs-10 col-sm-8"  readonly="readonly">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 开始生产时间</label> <span class="col-sm-4">
+									<input type="text" id="form-field-19" 
+									class="col-xs-10 col-sm-8"  readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 设备到达时间 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-20" 
+									class="col-xs-10 col-sm-8"  readonly="readonly">
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 预算金额 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-21"
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span> 
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 预算状态</label>
+									
+								<span class="col-sm-4">
+								<input type="text" id="form-field-22" class="col-xs-10 col-sm-8" readonly="readonly">
+ 								
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 机型</label> <span class="col-sm-4"> <input
+									type="text" id="form-field-23" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 台数 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-24"
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span>
+							</div>
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 其他设备</label> <span class="col-sm-4">
+									<input type="text" id="form-field-25"
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 加工工序 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-26" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 工件搬运 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-27" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 夹具周边 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-28" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 刀具 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-29" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 工件图纸 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-30"
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 样件 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-31" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 工艺方案 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-32" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 加工节拍 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-33" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 报价单 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-34" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span>
+							</div>
+
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 代理点备注</label> <span class="col-sm-4">
+									<input type="text" id="form-field-35" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 预计 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-36" 
+									class="col-xs-10 col-sm-8" readonly="readonly">
+								</span>
+							</div>
+
+
+							<div class="col-sm-12">
+								<label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 客户报备状态 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-37" readonly="readonly"
+									class="col-xs-10 col-sm-8" value="0" readonly="readonly">
+								</span> <label class="col-sm-2 control-label no-padding-right"
+									for="form-field-1"> 事物方担当者 </label> <span class="col-sm-4">
+									<input type="text" id="form-field-38" 
+									class="col-xs-10 col-sm-8 " readonly="readonly"></input>
+									
+								</span>
+							</div>
+
+						</div>
+
+					</form>
+				</div>
+				<div class="modal-footer modal-footer-customer-detail">
+		          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>  
+		        </div>
+			</div>
+		</div>
+	</div>
+	<!-- basic scripts -->
+
+	<!--[if !IE]> -->
+	
+	
+ 	<script type="text/javascript">
+		window.jQuery
+				|| document.write("<script src='../assets/js/jquery.js'>"
+						+ "<"+"/script>");
+	</script> 
+
+	<script type="text/javascript">
+		if ('ontouchstart' in document.documentElement)
+			document
+					.write("<script src='../assets/js/jquery.mobile.custom.js'>"
+							+ "<"+"/script>");
+	</script>
+
+	<script src="../assets/js/jquery.cookie.js"></script>
+	<script src="../assets/js/bootstrap.js"></script>
+
+	<!-- page specific plugin scripts -->
+	<script src="../assets/js/dataTables/jquery.dataTables.js"></script>
+	<script src="../assets/js/dataTables/jquery.dataTables.bootstrap.js"></script>
+	<script
+		src="../assets/js/dataTables/extensions/buttons/dataTables.buttons.js"></script>
+	<script
+		src="../assets/js/dataTables/extensions/buttons/buttons.flash.js"></script>
+	<script
+		src="../assets/js/dataTables/extensions/buttons/buttons.html5.js"></script>
+	<script
+		src="../assets/js/dataTables/extensions/buttons/buttons.print.js"></script>
+	<script
+		src="../assets/js/dataTables/extensions/buttons/buttons.colVis.js"></script>
+	<script
+		src="../assets/js/dataTables/extensions/select/dataTables.select.js"></script>
+	<!-- ace scripts -->
+	<script src="../assets/js/ace/elements.fileinput.js"></script>
+	<script src="../assets/js/ace/elements.typeahead.js"></script>
+	<script src="../assets/js/ace/ace.js"></script>
+	<script src="../assets/js/ace/ace.sidebar.js"></script>
+	<script src="../assets/js/ace/ace.sidebar-scroll-1.js"></script>
+
+	<!-- inline scripts related to this page -->
+	<script src="../assets/js/addDate.js"></script>
+	<!-- <script src="../js/sidebar-save.js"></script> -->
+	<script src="../assets/js/md5.js"></script>
+	<script src="../assets/js/date-time/moment.js"></script>
+	<script src="../assets/js/laypage.js"></script>
+	<script src="../js/customerApplication.js"></script>
+	<!-- <script type="application/javascript">
+		$(function(){
+			$('body').on('click',function(e){
+				console.log(e.target);
+			})
+		})
+	</script> -->
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+  <include resource="org/springframework/boot/logging/logback/basic.xml"/>
+
+  <property name="LOG_PATH"
+            value="${catalina.base}/logs/crm"/>
+
+  <property name="FILE_LOG_PATTERN"
+            value="%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${PID:- } [%t] --- %-40.40logger{39} : %m%n"/>
+
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+	    <!-- encoders are assigned the type
+	         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+	    <encoder>
+	      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+	    </encoder>
+	</appender>
+
+
+  <appender name="serverConsole" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <Append>true</Append>
+    <File>${LOG_PATH}/catalina.out</File>
+    <encoder>
+      <pattern>${FILE_LOG_PATTERN}</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_PATH}/catalina.out.%d{yyyy-MM-dd}
+      </fileNamePattern>
+      <maxHistory>15</maxHistory>
+    </rollingPolicy>
+  </appender>
+
+  <!-- Plain Text Rolling Appender -->
+  <appender name="server"
+            class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <Append>true</Append>
+    <File>${LOG_PATH}/server.log</File>
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>INFO</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+    <encoder>
+      <pattern>${FILE_LOG_PATTERN}</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_PATH}/server.log.%d{yyyy-MM-dd}
+      </fileNamePattern>
+      <maxHistory>15</maxHistory>
+    </rollingPolicy>
+  </appender>
+
+  <!-- Plain Text Rolling Appender -->
+  <appender name="server-error"
+            class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <Append>true</Append>
+    <File>${LOG_PATH}/server-error.log</File>
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>ERROR</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+    <encoder>
+      <pattern>${FILE_LOG_PATTERN}</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_PATH}/server-error.log.%d{yyyy-MM-dd}
+      </fileNamePattern>
+      <maxHistory>15</maxHistory>
+    </rollingPolicy>
+  </appender>
+
+  <appender name="api" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <Append>true</Append>
+    <File>${LOG_PATH}/api.log</File>
+    <encoder>
+      <pattern>${FILE_LOG_PATTERN}</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_PATH}/api.log.%d{yyyy-MM-dd}
+      </fileNamePattern>
+      <maxHistory>15</maxHistory>
+    </rollingPolicy>
+  </appender>
+
+ <logger name="com.zhongying" level="DEBUG">
+    <appender-ref ref="server"/>
+    <appender-ref ref="server-error"/>
+    <!--<appender-ref ref="stdout"/>-->
+  </logger>
+
+  <logger name="com.zhongying.api.LogAspect" level="INFO" additivity="false">
+    <appender-ref ref="api" />
+    <!--<appender-ref ref="stdout"/>-->
+  </logger>
+
+  <root level="INFO">
+   <appender-ref ref="serverConsole"/>
+  <appender-ref ref="stdout"/>
+  </root>
+</configuration>
