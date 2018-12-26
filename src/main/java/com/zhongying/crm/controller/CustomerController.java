@@ -1,35 +1,8 @@
 package com.zhongying.crm.controller;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
-import com.zhongying.crm.util.RegExp;
-import org.apache.http.HttpRequest;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.zhongying.crm.model.Admin;
 import com.zhongying.crm.model.ApproveRecord;
 import com.zhongying.crm.model.Customer;
@@ -37,8 +10,18 @@ import com.zhongying.crm.service.AdminService;
 import com.zhongying.crm.service.ApproveRecordService;
 import com.zhongying.crm.service.CustomerService;
 import com.zhongying.crm.util.ChineseCharToEn;
-import com.zhongying.crm.util.Sort;
+import com.zhongying.crm.util.RegExp;
 import com.zhongying.crm.util.Sort2;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @author yangyingjie E-mail:931526599@qq.com

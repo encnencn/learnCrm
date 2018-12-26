@@ -1,8 +1,6 @@
 package com.zhongying.crm.service;
 
-import com.zhongying.crm.mapper.MenuMapper;
 import com.zhongying.crm.mapper.ParameterMapper;
-import com.zhongying.crm.model.Function;
 import com.zhongying.crm.model.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

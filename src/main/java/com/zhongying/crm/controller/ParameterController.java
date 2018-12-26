@@ -8,10 +8,7 @@
  *********************************************/
 package com.zhongying.crm.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.zhongying.crm.model.Function;
 import com.zhongying.crm.model.Parameter;
-import com.zhongying.crm.service.MenuService;
 import com.zhongying.crm.service.ParameterService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,18 +1,15 @@
 package com.zhongying.crm.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
+import com.alibaba.fastjson.JSONArray;
+import com.zhongying.crm.model.Regulation;
+import com.zhongying.crm.service.RegulationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alibaba.fastjson.JSONArray;
-import com.zhongying.crm.model.Notice;
-import com.zhongying.crm.model.Regulation;
-
-import com.zhongying.crm.service.RegulationService;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @author feng

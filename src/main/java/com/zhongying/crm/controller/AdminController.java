@@ -1,24 +1,5 @@
 package com.zhongying.crm.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeMap;
-
-import javax.annotation.Resource;
-import javax.naming.ldap.PagedResultsControl;
-import javax.servlet.http.HttpServletRequest;
-
-import com.zhongying.crm.service.MenuService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -27,8 +8,18 @@ import com.zhongying.crm.model.Department;
 import com.zhongying.crm.model.Function;
 import com.zhongying.crm.model.Roles;
 import com.zhongying.crm.service.AdminService;
+import com.zhongying.crm.service.MenuService;
 import com.zhongying.crm.util.Md5;
 import com.zhongying.crm.util.Sort;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.*;
 
 @RestController
 @RequestMapping(produces = "application/json; charset=utf-8")
