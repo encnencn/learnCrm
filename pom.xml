@@ -164,7 +164,7 @@
 			<artifactId>CCP_REST_SDK_JAVA_v2.7r</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/src/main/resources/lib/CCP_REST_SDK_JAVA_v2.7r.jar</systemPath>
+			<systemPath>${basedir}/src/main/resources/libs/CCP_REST_SDK_JAVA_v2.7r.jar</systemPath>
 		</dependency>
 	
     <!-- swagger2 -->
@@ -263,7 +263,7 @@
 							<tasks>
 								<copy
 									todir="${project.build.directory}/${project.artifactId}-${project.version}/WEB-INF/lib">
-									<fileset dir="${basedir}/src/main/resources/lib">
+									<fileset dir="${basedir}/src/main/resources/libs">
 										<include name="**/*.jar" />
 									</fileset>
 								</copy>
@@ -310,7 +310,7 @@
 						<artifactId>PaginationPlugin</artifactId>
 						<version>1.0</version>
 						<scope>system</scope>
-						<systemPath>${project.basedir}/lib/mybatis-page-plugin-1.0-SNAPSHOT.jar</systemPath>
+						<systemPath>${project.basedir}/src/main/resources/libs/mybatis-page-plugin-1.0-SNAPSHOT.jar</systemPath>
 					</dependency>
 				</dependencies>
 			</plugin>
