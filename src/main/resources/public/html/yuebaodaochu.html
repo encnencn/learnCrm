@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta charset="utf-8" />
+<title>分公司管理</title>
+
+<meta name="description" content="" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<link rel="stylesheet" href="../assets/css/bootstrap.css" />
+<link rel="stylesheet" href="../assets/css/font-awesome.css" />
+<link rel="stylesheet" href="../assets/css/ace-fonts.css" />
+<link rel="stylesheet" href="../assets/css/ace.css"
+	class="ace-main-stylesheet" id="main-ace-style" />
+<link rel="stylesheet" href="../assets/css/common.css" />
+<link rel="stylesheet" href="../assets/css/laypage.css">
+<script src="../assets/js/ace-extra.js"></script>
+</head>
+<style>
+	.dataTables_wrapper .row-space {
+		height: 81px;
+	}
+</style>
+<body class="no-skin">
+	<!-- #section:basics/navbar.layout -->
+
+	<div class="breadcrumbs" id="breadcrumbs">
+		<script type="text/javascript">
+            try {
+                ace.settings.check('breadcrumbs', 'fixed')
+            } catch (e) {
+            }
+		</script>
+
+		<ul class="breadcrumb">
+			<li class="active">
+				月报导出
+			</li>
+
+			<li>
+				<a href="" id="refresh"><i class="fa fa-refresh" ></i> </a>
+			</li>
+		</ul>
+		<!-- /.breadcrumb -->
+	</div>
+		<!-- /section:basics/sidebar -->
+	<div class="main-content">
+			<div class="main-content-inner">
+				<!-- /section:basics/content.breadcrumbs -->
+				<div class="page-content" id="role-manage-role">
+					<div class="row">
+						<div class="col-xs-12">
+							<!-- PAGE CONTENT BEGINS -->
+							<!-- #section:elements.tab.option -->
+							<div class="tabbable dataTables_wrapper form-inline">
+								<div class="row row-space">
+									<div class="col-xs-12">
+										<div class="col-xs-2">
+											<label  > 开始日期 </label>
+
+											<input type="text" id="query_startDate"
+												   onfocus="HS_setDate(this)">
+										</div>
+										<div class="col-xs-2">
+											<label> 结束日期 </label>
+
+											<input type="text" id="query_endDate"
+												   onfocus="HS_setDate(this)">
+										</div>
+										<div class="col-xs-2">
+											<label> 客户名称 </label>
+											<input type="text" id="query_customerName"
+												   class="col-xs-10" >
+										</div>
+										<div class="col-xs-1">
+											<button type="button" class="btn btn-xs btn-success" style="margin-top: 24px;"
+													id="btn_query">查询</button>
+										</div>
+										<div class="col-xs-1">
+											<button type="button" class="btn btn-xs btn-success"  onclick="javascript:method1('ta')"
+													id="button1" style="margin-top: 24px;"	data-toggle="modal" data-target="#myModalAdd">导出</button>
+										</div>
+									</div>
+
+
+<!-- id="Button1" type="button" value="导出EXCEL" --> 
+       
+
+								</div>
+								<table id="ta"class="table table-striped table-bordered table-hover">
+									<thead>
+										<tr>
+										   <!-- <th><input type="checkbox"></th> -->
+											<th>回访客户名称</th>
+											<th>回访主题</th>
+											<th>回访时间</th>
+											<th>回访方式</th>
+											<th>回访内容</th>											
+										</tr>
+									</thead>
+
+									<tbody id="rights_list">
+
+									</tbody>
+								</table>
+								<!--分页-->
+								<div class="row">
+									<div class="col-xs-6">
+										<div class="dataTables_info" role="status" aria-live="polite"
+											id="rights_allPage">显示5条记录，共5条</div>
+									</div>
+									<div class="col-xs-6">
+										<div class="dataTables_paginate paging_simple_numbers"
+											id="rights_page"></div>
+									</div>
+								</div>
+							</div>
+						</div>						
+					</div>			
+				</div>			
+			</div>
+		</div>
+     <script type="text/javascript" language="javascript">
+        var idTmr;
+		function  getExplorer() {
+			var explorer = window.navigator.userAgent ;
+			//ie 
+			if (explorer.indexOf("MSIE") >= 0) {
+				return 'ie';
+			}
+			//firefox 
+			else if (explorer.indexOf("Firefox") >= 0) {
+				return 'Firefox';
+			}
+			//Chrome
+			else if(explorer.indexOf("Chrome") >= 0){
+				return 'Chrome';
+			}
+			//Opera
+			else if(explorer.indexOf("Opera") >= 0){
+				return 'Opera';
+			}
+			//Safari
+			else if(explorer.indexOf("Safari") >= 0){
+				return 'Safari';
+			}
+		}
+        function method1(tableid) {//整个表格拷贝到EXCEL中
+			if(getExplorer()=='ie')
+			{
+				var curTbl = document.getElementById(tableid);
+				var oXL = new ActiveXObject("Excel.Application");
+				
+				//创建AX对象excel 
+				var oWB = oXL.Workbooks.Add();
+				//获取workbook对象 
+				var xlsheet = oWB.Worksheets(1);
+				//激活当前sheet 
+				var sel = document.body.createTextRange();
+				sel.moveToElementText(curTbl);
+				//把表格中的内容移到TextRange中 
+				sel.select();
+				//全选TextRange中内容 
+				sel.execCommand("Copy");
+				//复制TextRange中内容  
+				xlsheet.Paste();
+				//粘贴到活动的EXCEL中       
+				oXL.Visible = true;
+				//设置excel可见属性
+
+				try {
+					var fname = oXL.Application.GetSaveAsFilename("Excel.xlsx", "Excel Spreadsheets (*.xlsx), *.xlsx");
+				} catch (e) {
+					print("Nested catch caught " + e);
+				} finally {
+					oWB.SaveAs(fname);
+
+					oWB.Close(savechanges = false);
+					//xls.visible = false;
+					oXL.Quit();
+					oXL = null;
+					//结束excel进程，退出完成
+					//window.setInterval("Cleanup();",1);
+					idTmr = window.setInterval("Cleanup();", 1);
+
+				}
+				
+			}
+			else
+			{
+				tableToExcel('ta')
+			}
+        }
+        function Cleanup() {
+            window.clearInterval(idTmr);
+            CollectGarbage();
+        }
+		var tableToExcel = (function() {
+			  var uri = 'data:application/vnd.ms-excel;base64,',
+			  template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>',
+				base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) },
+				format = function(s, c) {
+					return s.replace(/{(\w+)}/g,
+					function(m, p) { return c[p]; }) }
+				return function(table, name) {
+				if (!table.nodeType) table = document.getElementById(table)
+				var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+				window.location.href = uri + base64(format(template, ctx))
+			  }
+			})()
+    </script>
+
+		<div class="footer">
+			<div class="footer-inner">
+				<!-- #section:basics/footer -->
+				<div class="footer-content">
+					<!--<span class="bigger-120"> 版权所有 2015 <span
+						class="blue bolder">zhongyinginfo.com</span> 西安众盈医疗信息科技有限公司
+					</span>-->
+				</div>
+
+				<!-- /section:basics/footer -->
+			</div>
+		</div>
+
+		<a href="#" id="btn-scroll-up"
+			class="btn-scroll-up btn btn-sm btn-inverse"> <i
+			class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+		</a>
+	</div>
+	
+
+<!--查询月报-->
+		<div class="modal fade" id="myModalQuery" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel3" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content modal-content-search">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">关闭</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel3">查询月报</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+
+							<div class="form-group-visitView">
+								<!-- 此处是点击修改弹出页面的代码 -->
+							        <label  style="margin-left:65px;"> 开始日期 </label>
+
+									<input type="text" id="form-field-startDate" style="width:30%;"
+									 onfocus="HS_setDate(this)">
+									<label> 结束日期 </label>
+
+									<input type="text" id="form-field-endDate" style="width:30%;"
+									 onfocus="HS_setDate(this)">
+							</div>
+							</br>
+							</br>
+							<div class="form-group-visitView">
+								<!-- 此处是点击修改弹出页面的代码 -->
+								<label class="col-sm-3 control-label no-padding-right"
+									for="form-field-4">回访客户名称</label>
+								<div class="col-sm-9">
+									<input type="text" id="form-field-CustomerName" style="width:150px;"
+									class="col-xs-10 col-sm-8" >
+								</div>
+							</div>
+							</br>
+							</br>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<div class="col-sm-9"></div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer modal-footer-queryYuebao">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-primary btn-queryYuebao">查询</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+	<!-- basic scripts -->
+
+	<!--[if !IE]> -->
+	<script type="text/javascript">
+		window.jQuery
+				|| document.write("<script src='../assets/js/jquery.js'>"
+						+ "<"+"/script>");
+	</script>
+
+
+	<script type="text/javascript">
+		if ('ontouchstart' in document.documentElement)
+			document
+					.write("<script src='../assets/js/jquery.mobile.custom.js'>"
+							+ "<"+"/script>");
+	</script>
+
+	<script src="../assets/js/jquery.cookie.js"></script>
+	<script src="../assets/js/bootstrap.js"></script>
+
+	<!-- page specific plugin scripts -->
+	<script src="../assets/js/dataTables/jquery.dataTables.js"></script>
+	<script src="../assets/js/dataTables/jquery.dataTables.bootstrap.js"></script>
+	<script
+		src="../assets/js/dataTables/extensions/buttons/dataTables.buttons.js"></script>
+	<script
+		src="../assets/js/dataTables/extensions/buttons/buttons.flash.js"></script>
+	<script
+		src="../assets/js/dataTables/extensions/buttons/buttons.html5.js"></script>
+	<script
+		src="../assets/js/dataTables/extensions/buttons/buttons.print.js"></script>
+	<script
+		src="../assets/js/dataTables/extensions/buttons/buttons.colVis.js"></script>
+	<script
+		src="../assets/js/dataTables/extensions/select/dataTables.select.js"></script>
+	<script src="../assets/js/ace/elements.fileinput.js"></script>
+	<script src="../assets/js/ace/elements.typeahead.js"></script>
+	<script src="../assets/js/ace/ace.js"></script>
+	<script src="../assets/js/ace/ace.sidebar.js"></script>
+	<script src="../assets/js/ace/ace.sidebar-scroll-1.js"></script>
+	<script src="../assets/js/addDate.js"></script>
+	
+	<script src="../assets/js/md5.js"></script>
+	<script src="../assets/js/date-time/moment.js"></script>
+	<script src="../assets/js/laypage.js"></script>
+	<script src="../js/yuebaodaochu.js"></script>
+	
+</body>
+</html>
