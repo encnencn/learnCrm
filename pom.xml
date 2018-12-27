@@ -321,7 +321,7 @@
   		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
+				<filtering>false</filtering>
 				<excludes>
 					<exclude>application-local_develop.properties</exclude>
 					<exclude>application-local_test.properties</exclude>
