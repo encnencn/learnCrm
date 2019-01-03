@@ -6,11 +6,13 @@
  * Copyright (c) 2018, 西安众盈医疗信息科技有限公司
  *
  *********************************************/
+
 package com.zhongying.crm.controller;
 
 import com.zhongying.crm.model.Parameter;
 import com.zhongying.crm.service.ParameterService;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -34,6 +36,13 @@ public class ParameterController {
 
         return parameterService.parameterList(enName);
     }
+
+    @RequestMapping(value = "/parameterAdd",   method = RequestMethod.POST)
+    public int parameterAdd(Parameter parameter) {
+
+        return parameterService.parameterAdd(parameter);
+    }
+
 
 
 }

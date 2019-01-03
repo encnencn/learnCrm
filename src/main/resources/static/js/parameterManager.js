@@ -7,9 +7,10 @@ $(function () {
         init: function () {
             this.load();
             this.search();
+            this.addSubmit(); // 添加提交
             //this.delete();// 删除
             //this.addView();// 添加展示
-            //this.addSubmit(); // 添加提交
+
             //this.updateSubmit();// 修改提交
             //this.updateView();// 修改展示
 
@@ -546,90 +547,51 @@ $(function () {
         // 添加菜单提交
         addSubmit: function () {
             var that = this;
-            $(".modal-footer-customer-add").on(
-                'click',
-                '.btn-customer-add',
-                function () {
+            $("#btn_add").on('click',function () {
 
-                    var name = $(this).parents('.modal-content').find(
-                        '#form-field-1').val();
-                    menuCode = $(this).parents('.modal-content').find(
-                        '#form-field-2').val();
-                    isMenu = $(this).parents('.modal-content').find(
-                        '#form-field-3').val();
-                    fatherName = $(this).parents('.modal-content').find(
-                        '#form-field-4').val();
-                    url = $(this).parents('.modal-content').find(
-                        '#form-field-5').val();
-                    action = $(this).parents('.modal-content').find(
-                        '#form-field-6').val();
-                    priority = $(this).parents('.modal-content').find(
-                        '#form-field-7').val();
+                var enName = $('#enName_add').val(),
+                    cnName = $('#cnName_add').val(),
+                    status = $("input[name='status_add']:checked").val(),
+                    value = $('#value_add').val(),
+                    description = $('#description_add').val();
 
-                    if (name == "") {
-                        $(this).parents('.modal-content').find(
-                            '#form-field-1').focus();
+
+                    if (enName == "") {
+                        $('#enName_add').focus();
                         return false;
-                    } else if (menuCode == "") {
-                        $(this).parents('.modal-content').find(
-                            '#form-field-2').focus();
-                        return false;
-                    } else if (isMenu == "") {
-                        $(this).parents('.modal-content').find(
-                            '#form-field-3').focus();
-                        return false;
-                    } else if (fatherName == "") {
-                        $(this).parents('.modal-content').find(
-                            '#form-field-4').focus();
-                        return false;
-                    } /*else if (url == "") {
-							$(this).parents('.modal-content').find(
-									'#form-field-5').focus();
-							return false;
-						}*/
-                    /*else if (action == "") {
-                        $(this).parents('.modal-content').find(
-                                '#form-field-6').focus();
-                        return false;
-                    }*/ else if (priority == "") {
-                        $(this).parents('.modal-content').find(
-                            '#form-field-7').focus();
+                    }  else if (value == "") {
+                        $('#value_add').focus();
                         return false;
                     }
 
-                    jsonDate = {
-                        "name": name,// 1
-                        "menuCode": menuCode,// 2
-                        "isMenu": isMenu,// 3
-                        "fatherName": fatherName,// 4
-                        "url": url,// 5
-                        "action": action,// 6
-                        "priority": priority,// 7
+
+                    jsonData = {
+                        "enName": enName,// 1
+                        "cnName": cnName,// 2
+                        "status": status,// 3
+                        "value": value,// 4
+                        "description": description
                     };
 
-                    for (var key in jsonDate) {
-                        if (jsonDate[key] == "") {
-                            delete jsonDate[key];
+                    for (var key in jsonData) {
+                        if (jsonData[key] == "") {
+                            delete jsonData[key];
                         }
                     }
-                    // alert(JSON.stringify(jsonDate));
+                  console.log(jsonData)
 
                     $.ajax({
-                        url: "/addMenuSubmit",
+                        url: "/parameterAdd",
                         type: "POST",
-                        data: jsonDate,
+                        data: jsonData,
                         success: function (data) {
 
-                            if (data == "NameExist") {
-                                $('.name-exist').html("已存在！");
-                            } else if (data == "CodeExist") {
-                                $('.code-exist').html("已存在！");
-                            } else {
+                            if (data == "1")  {
                                 $('#myModal1').hide();
                                 $('.modal-backdrop').hide();
-                                //customerManager.init();
+
                                 location = location;//页面刷新
-                                menuManager.loadMenu();
+                                Manager.load();
                             }
 
                         },

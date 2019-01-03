@@ -49,12 +49,13 @@ $(function() {
                 //获取是否自动登录
                 autoLoginInfo = that.autoLogin.prop("checked");
                 //校验用户名
-                if(!that.regUser.test(usernameInfo)){
+
+                if(usernameInfo.length!=11){
                     that.prompt1.text("用户名格式错误");
                     return false;
                 }
                 //加密用户名
-                var usernameInfoMD5 = usernameInfo;
+                var username = usernameInfo;
                 //加密密码
                 var passwordInfoMD5 = hex_md5(passwordInfo);
               
@@ -62,9 +63,9 @@ $(function() {
                     type: "POST",
                     url: "/loginCheck",
                    
-                    data: "username="+usernameInfoMD5+"&password="+passwordInfoMD5+"&verifyCode="+verifyCode+"&autoLogin="+autoLoginInfo,
+                    data: "username="+username+"&password="+passwordInfoMD5+"&verifyCode="+verifyCode+"&autoLogin="+autoLoginInfo,
                     success: function(data){
-//                    	console.log(data)
+//
 
                     	
                         if (data=="验证码输入正确") {
@@ -116,15 +117,16 @@ $(function() {
                 curCount = count;
                 var getphoneInfo = that.getPhone.val();//手机号码
                 if(getphoneInfo != ""){
-                    if(!that.regUser.test(getphoneInfo)){
-                        that.prompt2.text("邮箱格式错误")
+
+                    if(getphoneInfo.length!=11){
+                        that.prompt2.text("用户名格式错误")
                         return false;
                     }else{
                         //产生验证码
                         for (var i = 0; i < codeLength; i++) {
                             code += parseInt(Math.random() * 9).toString();
                         }
-                        console.log(code);
+
                         //设置button效果，开始计时
                         that.getAuthCode.attr("disabled", "true");
                         that.getAuthCode.html("请在" + curCount + "秒内输入");

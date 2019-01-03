@@ -8,12 +8,9 @@
  *********************************************/
 package com.zhongying.crm.model;
 
-import io.swagger.annotations.ApiModel;
 import lombok.*;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * @author yangyingjie

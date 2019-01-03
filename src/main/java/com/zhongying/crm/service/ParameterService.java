@@ -25,6 +25,11 @@ public class ParameterService {
 		
 		return parameterMapper.parameterList(enName);
 	}
-	
 
+
+    public int parameterAdd(Parameter parameter) {
+
+		return   parameterMapper.insert(parameter);
+
+    }
 }
