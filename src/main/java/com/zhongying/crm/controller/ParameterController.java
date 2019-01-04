@@ -31,18 +31,69 @@ public class ParameterController {
     @Resource
     private ParameterService parameterService;
 
+    /**
+     * 参数列表
+     *
+     * @param enName
+     * @return
+     */
     @RequestMapping("/parameterList")
     public List<Parameter> parameterList(String enName) {
 
         return parameterService.parameterList(enName);
     }
 
+    /**
+     * 参数增加
+     *
+     * @param parameter
+     * @return
+     */
     @RequestMapping(value = "/parameterAdd",   method = RequestMethod.POST)
     public int parameterAdd(Parameter parameter) {
 
         return parameterService.parameterAdd(parameter);
     }
 
+    /**
+     * 参数修改
+     *
+     * @param parameter
+     * @return
+     */
+    @RequestMapping(value = "/parameterEdit",   method = RequestMethod.POST)
+    public int parameterEdit(Parameter parameter) {
 
+        return parameterService.parameterEdit(parameter);
+    }
 
+    /**
+     *参数删除
+     *
+     * @param parameter
+     * @return
+     */
+    @RequestMapping(value = "/parameterDelete",   method = RequestMethod.POST)
+    public int parameterDelete(Parameter parameter) {
+
+        return parameterService.parameterDelete(parameter);
+    }
+
+    /**
+     * 查询一条数据
+     *
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/parameterOne",   method = RequestMethod.GET)
+    public Parameter parameterOne(Integer id) {
+
+        return parameterService.parameterOne(id);
+    }
+
+    @RequestMapping(value = "/checkParameterName",   method = RequestMethod.GET)
+    public Integer checkParameterName(Parameter parameter) {
+
+        return parameterService.checkParameterName(parameter);
+    }
 }

@@ -11,4 +11,15 @@
 		 order by id asc
 	</select>
 
+	<select id="checkParameterName" resultType="Integer">
+		select count(*) from parameter where 1 =1
+		<if test="enName != null and enName != '' ">
+			and enName =#{enName}
+		</if>
+		<if test="id != null and id != '' ">
+			and id !=#{id}
+		</if>
+
+	</select>
+
 </mapper>

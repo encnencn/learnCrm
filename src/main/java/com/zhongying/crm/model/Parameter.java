@@ -8,9 +8,12 @@
  *********************************************/
 package com.zhongying.crm.model;
 
+import com.zhongying.crm.util.DateFormatTool;
 import lombok.*;
+import org.apache.commons.lang.StringUtils;
 
 import javax.persistence.Id;
+import java.util.Date;
 
 /**
  * @author yangyingjie
@@ -38,7 +41,24 @@ public class Parameter {
 
     private Integer status;
 
-    private String  createdatetime;
+    private String createdatetime;
 
     private String modifydatetime;
+
+    public String getCreatedatetime(){
+        if(StringUtils.isNotBlank(createdatetime)&&createdatetime.length()==21) {
+            return createdatetime.substring(0,19);
+        } else  {
+            return createdatetime;
+        }
+    }
+
+    public String getModifydatetime(){
+
+        if(StringUtils.isNotBlank(modifydatetime)&&modifydatetime.length()==21) {
+            return modifydatetime.substring(0,19);
+        } else {
+            return modifydatetime;
+        }
+    }
 }

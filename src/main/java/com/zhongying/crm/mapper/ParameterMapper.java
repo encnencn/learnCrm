@@ -19,4 +19,5 @@ public interface ParameterMapper extends MyMapper<Parameter>{
 	 List<Parameter> parameterList(@Param("enName") String enName);
 
 
+    Integer checkParameterName(Parameter parameter);
 }

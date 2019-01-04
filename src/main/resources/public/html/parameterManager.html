@@ -195,28 +195,28 @@
                     <div class="form-group">
                         <div class="col-sm-12">
                             <label class="col-sm-4 control-label  no-padding-right"
-                                   for="form-field-1"> 英文名称 </label>
+                                 > 英文名称 </label>
                             <span class="col-sm-6">
 									<input type="text" id="enName_add" placeholder="英文名称"
-                                           class="col-xs-10">
-									<label class="col-sm-4 control-label no-padding-left name-exist"
+                                           class="col-xs-8">
+									<label class="col-sm-2 control-label no-padding-left name-exist"
                                            style="color: red;">
-									<a style="color:green;display:none" id="add-name-true">✔</a>
-									<a style="color:red;display:none" id="add-name-false">✘</a>
+									<a style="color:green;display:none" id="add-enName-true">✔</a>
+									<a style="color:red;display:none" id="add-enName-false">✘</a>
 									</label>
 								</span>
                         </div>
                         <div class="col-sm-12">
                             <label class="col-sm-4 control-label no-padding-right"
-                                   for="form-field-1"> 中文名称 </label>
+                                   > 中文名称 </label>
                             <span class="col-sm-6">
 									<input type="text" id="cnName_add" placeholder="中文名称"
-                                           class="col-xs-10">
+                                           class="col-xs-8">
 							</span>
                         </div>
                         <div class="col-sm-12" style="    margin-bottom: 8px;">
                             <label class="col-sm-4 control-label no-padding-right"
-                                   for="form-field-1"> 状态 </label>
+                                 > 状态 </label>
                             <span class="col-sm-4">
                                   <label class="radio-inline">
                                       <input type="radio" name="status_add"  value="1"
@@ -237,18 +237,18 @@
 
                         <div class="col-sm-12" style="margin-bottom: 8px;">
                             <label class="col-sm-4 control-label no-padding-right"
-                                   for="form-field-1"> 参数值</label>
+                                 > 参数值</label>
                             <span class="col-sm-6">
 									<input type="text" id="value_add" placeholder="参数值"
-                                           class="col-xs-10">
+                                           class="col-xs-8">
 							</span>
                         </div>
 
                         <div class="col-sm-12">
                             <label class="col-sm-4 control-label no-padding-right"
-                                   for="form-field-1"> 详细描述</label>
+                                  > 详细描述</label>
                             <span class="col-sm-6">
-									<textarea  id="description_add" rows="5" cols="45"></textarea>
+									<textarea  id="description_add" rows="5" cols="35"></textarea>
 							</span>
                         </div>
                     </div>
@@ -269,93 +269,83 @@
 <div class="modal fade bs-example-modal-lg" id="myModal2" tabindex="-1"
      role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content modal-content-update">
+        <div class="modal-content modal-content-add">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span><span class="sr-only">关闭</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel2">修改</h4>
+                <h4 class="modal-title" id="myModalLabel2">新增</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
-
-                        <input type="text" hidden="hidden" id="form-field-0"
-                               placeholder="菜单ID" class="col-xs-10 col-sm-8">
-
                         <div class="col-sm-12">
-
-                            <label class="col-sm-2 control-label  no-padding-right"
-                                   for="form-field-1"> 菜单名称 </label> <span class="col-sm-4">
-									<input type="text" id="form-field-1" placeholder="菜单名称"
-                                           class="col-xs-10 col-sm-8">
-									<label class="col-sm-4 control-label no-padding-left name-exist"
+                            <label class="col-sm-4 control-label  no-padding-right"
+                                   > 英文名称 </label>
+                            <span class="col-sm-6">
+                                <input type="text" id="id_update" style="display: none" >
+									<input type="text" id="enName_update" placeholder="英文名称"
+                                           class="col-xs-8">
+									<label class="col-sm-2 control-label no-padding-left name-exist"
                                            style="color: red;">
-									<a style="color:green;display:none" id="update-name-true">✔</a>
-									<a style="color:red;display:none" id="update-name-false">✘</a>
-									</label>
-								</span> <label class="col-sm-2 control-label no-padding-right"
-                                               for="form-field-1"> 菜单编号 </label> <span class="col-sm-4">
-									<input type="text" id="form-field-2" placeholder="菜单编号"
-                                           class="col-xs-10 col-sm-8">
-									<label
-                                            class="col-sm-4 control-label no-padding-left code-exist"
-                                            style="color: red;">
-									<a style="color:green;display:none" id="update-code-true">✔</a>
-									<a style="color:red;display:none" id="update-code-false">✘</a>
+									<a style="color:green;display:none" id="update-enName-true">✔</a>
+									<a style="color:red;display:none" id="update-enName-false">✘</a>
 									</label>
 								</span>
+                        </div>
+                        <div class="col-sm-12">
+                            <label class="col-sm-4 control-label no-padding-right"
+                                  > 中文名称 </label>
+                            <span class="col-sm-6">
+									<input type="text" id="cnName_update" placeholder="中文名称"
+                                           class="col-xs-8">
+							</span>
+                        </div>
+                        <div class="col-sm-12" style="    margin-bottom: 8px;">
+                            <label class="col-sm-4 control-label no-padding-right"
+                                   > 状态 </label>
+                            <span class="col-sm-4">
+                                  <label class="radio-inline">
+                                      <input type="radio" name="status_update"  value="1"
+                                             checked="checked"> 有效
+                                   </label>
+                                <label class="radio-inline">
+                                     <input type="radio" name="status_update"  value="0">
+                                                无效
+                                </label>
 
+                                <label
+                                        class="col-sm-4 control-label no-padding-left ismenu-null"
+                                        style="color: red;">
+
+                                </label>
+							</span>
                         </div>
 
-
-                        <div class="col-sm-12">
-                            <label class="col-sm-2 control-label no-padding-right"
-                                   for="form-field-1"> 菜单类型 </label> <span class="col-sm-4">
-									<select id="form-field-3" class="col-xs-10 col-sm-8">
-										<option value=0>父菜单</option>
-										<option value=1>子菜单</option>
-								</select> <label
-                                class="col-sm-4 control-label no-padding-left ismenu-null"
-                                style="color: red;"></label>
-								</span> <label class="col-sm-2 control-label no-padding-right"
-                                               for="form-field-1"> 所属父菜单 </label> <span class="col-sm-4">
-									<select id="form-field-4"
-                                            class="col-xs-10 col-sm-8 allfathermenu">
-								</select>
-								</span>
+                        <div class="col-sm-12" style="margin-bottom: 8px;">
+                            <label class="col-sm-4 control-label no-padding-right"
+                                  > 参数值</label>
+                            <span class="col-sm-6">
+									<input type="text" id="value_update" placeholder="参数值"
+                                           class="col-xs-8">
+							</span>
                         </div>
 
                         <div class="col-sm-12">
-                            <label class="col-sm-2 control-label no-padding-right"
-                                   for="form-field-1"> 请求命名空间 </label> <span class="col-sm-4">
-									<input type="text" id="form-field-5" placeholder="请求命名空间 "
-                                           class="col-xs-10 col-sm-8"> <label
-                                class="col-sm-4 control-label no-padding-left url-null"
-                                style="color: red;"></label>
-								</span> <label class="col-sm-2 control-label no-padding-right"
-                                               for="form-field-1"> 执行方法名 </label> <span class="col-sm-4">
-									<input type="text" id="form-field-6" placeholder=" 执行方法名 "
-                                           class="col-xs-10 col-sm-8">
-
-								</span>
-                        </div>
-
-
-                        <div class="col-sm-12">
-                            <label class="col-sm-2 control-label no-padding-right"
-                                   for="form-field-1"> 优先级</label> <span class="col-sm-4">
-									<input type="text" id="form-field-7" placeholder="优先级 "
-                                           class="col-xs-10 col-sm-8">
-								</span>
+                            <label class="col-sm-4 control-label no-padding-right"
+                                   > 详细描述</label>
+                            <span class="col-sm-6">
+									<textarea  id="description_update" rows="5" cols="35"></textarea>
+							</span>
                         </div>
                     </div>
 
                 </form>
             </div>
-            <div class="modal-footer modal-footer-customer-update">
+            <div class="modal-footer modal-footer-customer-add">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary btn-customer-update">提交</button>
+                <button type="button" id="btn_submit" class="btn btn-primary ">提交
+                </button>
             </div>
         </div>
     </div>
@@ -402,9 +392,7 @@
 <script src="../assets/js/ace/ace.sidebar-scroll-1.js"></script>
 
 <!-- inline scripts related to this page -->
-<script src="../assets/js/addDate.js"></script>
 <!-- 	<script src="../js/sidebar-save.js"></script> -->
-<script src="../assets/js/md5.js"></script>
 <script src="../assets/js/date-time/moment.js"></script>
 <script src="../assets/js/laypage.js"></script>
 <script src="../js/parameterManager.js"></script>
