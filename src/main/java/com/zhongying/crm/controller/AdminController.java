@@ -11,6 +11,8 @@ import com.zhongying.crm.service.AdminService;
 import com.zhongying.crm.service.MenuService;
 import com.zhongying.crm.util.Md5;
 import com.zhongying.crm.util.Sort;
+import groovy.util.IFileNameFinder;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -59,24 +61,59 @@ public class AdminController {
 		}
 	}
 
-	
+	/**
+	 * 小程序登录
+	 *
+	 * @param username
+	 * @param password
+	 * @param req
+	 * @return
+	 */
 	@RequestMapping("/loginCheck_xcx")
-	public Boolean login_xcx(String username, String password, String verifyCode, HttpServletRequest req) {
-System.out.println(username+"======"+password);
+	public JSONObject login_xcx(String username, String password,  HttpServletRequest req) {
+		System.out.println("loginCheck_xcx[ username:"+username+";password:"+password+"]");
+		JSONObject result = new JSONObject();
+		result.put("code",400);
+		if (StringUtils.isBlank(username)||StringUtils.isBlank(password)){
+			result.put("message","账号或密码为空");
+			return result;
+		}
 		Admin admin = adminservice.queryByName(username);
 		if (admin == null) {
-			return false;
+			result.put("message","账号不存在");
+			return result;
 		} else {
-		
 			if (password.equalsIgnoreCase(admin.getPassword())) {
 				req.getSession().setAttribute("admin", admin);
-				return true;
+				result.put("code",200);
+				result.put("linktype",1);
+				result.put("message","登录成功");
+				return result;
 			} else {
-				return false;
+				result.put("message","账号或密码错误");
+				return result;
 			}
 		}
 	}
 
+	/**
+	 * 个人信息
+	 *
+	 * @param req
+	 * @return
+	 */
+	@RequestMapping("/mine_xcx")
+	public JSONObject mine_xcx(HttpServletRequest req) {
+		JSONObject result = new JSONObject();
+		Admin admin = (Admin) req.getSession().getAttribute("admin");
+		if (admin==null){
+			result.put("code",400);
+			return result;
+		}
+		result.put("code",200);
+		result.put("user",admin);
+		return result;
+	}
 	//APP登录校验
 	@RequestMapping("/loginCheck-APP")
 	public Boolean loginCheckAPP(String username, String password, String token,HttpServletRequest req) {
