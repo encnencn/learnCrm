@@ -2,6 +2,7 @@ package com.zhongying.crm.service;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,20 +53,20 @@ public class AdminService {
 	}
 
 	public List<Admin> queryAllAdmin() {
-		// TODO Auto-generated method stub
+
 		return adminmapper.queryAllAdmin();
 	}
 	public List<Admin> queryAllAdmin_able() {
-		// TODO Auto-generated method stub
+
 		return adminmapper.queryAllAdmin_able();
 	}
 	public List<Roles> queryAllRole() {
-		// TODO Auto-generated method stub
+
 		return adminmapper.queryAllRole();
 	}
 
 	public List<Department> queryAllDepartment() {
-		// TODO Auto-generated method stub
+
 		return adminmapper.queryAllDepartment();
 	}
 
@@ -80,26 +81,26 @@ public class AdminService {
 	}
 
 	public List<Admin> queryByTrueName(String name) {
-		// TODO Auto-generated method stub
+
 		return adminmapper.queryByTrueName(name);
 	}
 	public List<Admin> queryByTrueName_able(String name) {
-		// TODO Auto-generated method stub
+
 		return adminmapper.queryByTrueName_able(name);
 	}
 	//修改用户密码
 	public void updateNewPassword(Integer id, String newpassword) {
-		// TODO Auto-generated method stub
+
 		adminmapper.updateNewPassword(id,newpassword);
 	}
 
 	public Admin updateAdminView(Integer id) {
-		// TODO Auto-generated method stub
+
 		return adminmapper.updateAdminView(id);
 	}
 
 	public void updateAdminSubmit(Admin admin) {
-		// TODO Auto-generated method stub
+
 		adminmapper.updateAdminSubmit(admin);
 	}
 
@@ -109,31 +110,26 @@ public class AdminService {
 	}
 	
 	//APP登录成功之后存入token
-	public void setRemarkAsToken(Admin admin) {
-		
-		adminmapper.setRemarkAsToken(admin);
+	public Integer setRemarkAsToken(Admin admin) {
+
+		return  adminmapper.updateByPrimaryKeySelective(admin);
 	}
 
 	
 
 	public Admin selectByToken(String token) {
-		// TODO Auto-generated method stub
-		return adminmapper.selectByToken(token);
+		if (StringUtils.isBlank(token)){
+			return null;
+		}
+		Admin record = new Admin();
+		record.setToken(token);
+		return adminmapper.selectOne(record);
 	}
 
 	public Integer queryAdminIdByTruename(String trueName){
 		return adminmapper.queryAdminIdByTruename(trueName);
 	}
-	// 查询所有的普通用户
-	// public List<Admin> queryByType(String usertype,Admin user){
-	// if(user!=null){
-	// if (user.getPage() != null && user.getRows() != null) {
-	// PageHelper.startPage(user.getPage(), user.getRows());
-	// }
-	// }
-	// System.out.println("进入查询所有普通用户");
-	// return usermapper.queryByType(usertype);
-	// }
+
 
 	public Admin checkAdminName(String username) {
 		
@@ -146,8 +142,17 @@ public class AdminService {
 	}
 
 	public Admin queryByusername(String username) {
-		// TODO Auto-generated method stub
+
 		return adminmapper.queryByusername( username);
 	}
 
+    public Integer updateByPrimaryKeySelective(Admin admin) {
+
+		return adminmapper.updateByPrimaryKeySelective(admin);
+    }
+
+	public Integer updateByPrimaryKey(Admin admin) {
+
+		return adminmapper.updateByPrimaryKey(admin);
+	}
 }

@@ -69,6 +69,7 @@ public class MyFilter implements Filter {
 		
 		//截取访问地址
 	     String uri = request2.getRequestURI();
+		System.out.println("<<<<<<<<<<<uri:"+uri);
 	     String action=uri.split("/")[2] ;
 	     //System.out.println("action:"+action);  //打印结果   html/index.html
 	     

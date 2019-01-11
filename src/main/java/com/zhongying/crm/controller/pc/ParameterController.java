@@ -7,7 +7,7 @@
  *
  *********************************************/
 
-package com.zhongying.crm.controller;
+package com.zhongying.crm.controller.pc;
 
 import com.zhongying.crm.model.Parameter;
 import com.zhongying.crm.service.ParameterService;

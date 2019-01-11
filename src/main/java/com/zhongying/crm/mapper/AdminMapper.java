@@ -87,13 +87,9 @@ public interface AdminMapper extends BaseMapper<Admin> {
   	@Select("select password from admin where id =#{id}")
 	public String selectPassById(Integer id);
   	
-  	//APP输入账号密码，登录成功之后如果选择了自动保存，传token到后台，保存到数据库
-	@Insert(" update admin set remark =#{remark} where id =#{id}")
-	public void setRemarkAsToken(Admin admin);
+
 	
-	//APP登录的时候如果判断选择了自动登录，而且token中保存有东西，传token到后台校验
-	@Select(" select * from admin where remark =#{token}")
-	public Admin selectByToken(String token);
+
 
 	@Select(" select id from admin where trueName =#{trueName}")
 	public Integer queryAdminIdByTruename(String trueName);

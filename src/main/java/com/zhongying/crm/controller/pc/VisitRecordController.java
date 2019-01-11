@@ -1,4 +1,4 @@
-package com.zhongying.crm.controller;
+package com.zhongying.crm.controller.pc;
 
 
 import com.alibaba.fastjson.JSONArray;

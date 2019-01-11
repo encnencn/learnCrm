@@ -1,12 +1,19 @@
 package com.zhongying.crm.model;
 
+import lombok.*;
+
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Transient;
 
-@Entity
+@Data
+@Builder
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Admin extends BaseEntity {
+	@Id
 	private Integer id;
-	
 
 	// 用户名
 	private String username;
@@ -16,10 +23,12 @@ public class Admin extends BaseEntity {
 	private String mobile;
 	// 真实姓名
 	private String trueName;
+	//头像
+	private String avatarUrl;
 	// 邮箱
 	private String email;
 	//
-	private String remark;
+	private String token;
 	// 是否启用
 	private String isDisable;
 	//角色ID
@@ -35,100 +44,6 @@ public class Admin extends BaseEntity {
 	@Transient
 	private String departmentname;
 	
-	public Integer getRoleId() {
-		return roleId;
-	}
 
-	public void setRoleId(Integer roleId) {
-		this.roleId = roleId;
-	}
-
-	public Integer getDepartmentId() {
-		return departmentId;
-	}
-
-	public void setDepartmentId(Integer departmentId) {
-		this.departmentId = departmentId;
-	}
-
-	public String getRolename() {
-		return rolename;
-	}
-
-	public void setRolename(String rolename) {
-		this.rolename = rolename;
-	}
-
-	public String getDepartmentname() {
-		return departmentname;
-	}
-
-	public void setDepartmentname(String departmentname) {
-		this.departmentname = departmentname;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getMobile() {
-		return mobile;
-	}
-
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
-
-	public String getTrueName() {
-		return trueName;
-	}
-
-	public void setTrueName(String trueName) {
-		this.trueName = trueName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getRemark() {
-		return remark;
-	}
-
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
-
-	public String getIsDisable() {
-		return isDisable;
-	}
-
-	public void setIsDisable(String isDisable) {
-		this.isDisable = isDisable;
-	}
 
 }

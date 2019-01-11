@@ -1,4 +1,4 @@
-package com.zhongying.crm.controller;
+package com.zhongying.crm.controller.pc;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -61,59 +61,7 @@ public class AdminController {
 		}
 	}
 
-	/**
-	 * 小程序登录
-	 *
-	 * @param username
-	 * @param password
-	 * @param req
-	 * @return
-	 */
-	@RequestMapping("/loginCheck_xcx")
-	public JSONObject login_xcx(String username, String password,  HttpServletRequest req) {
-		System.out.println("loginCheck_xcx[ username:"+username+";password:"+password+"]");
-		JSONObject result = new JSONObject();
-		result.put("code",400);
-		if (StringUtils.isBlank(username)||StringUtils.isBlank(password)){
-			result.put("message","账号或密码为空");
-			return result;
-		}
-		Admin admin = adminservice.queryByName(username);
-		if (admin == null) {
-			result.put("message","账号不存在");
-			return result;
-		} else {
-			if (password.equalsIgnoreCase(admin.getPassword())) {
-				req.getSession().setAttribute("admin", admin);
-				result.put("code",200);
-				result.put("linktype",1);
-				result.put("message","登录成功");
-				return result;
-			} else {
-				result.put("message","账号或密码错误");
-				return result;
-			}
-		}
-	}
 
-	/**
-	 * 个人信息
-	 *
-	 * @param req
-	 * @return
-	 */
-	@RequestMapping("/mine_xcx")
-	public JSONObject mine_xcx(HttpServletRequest req) {
-		JSONObject result = new JSONObject();
-		Admin admin = (Admin) req.getSession().getAttribute("admin");
-		if (admin==null){
-			result.put("code",400);
-			return result;
-		}
-		result.put("code",200);
-		result.put("user",admin);
-		return result;
-	}
 	//APP登录校验
 	@RequestMapping("/loginCheck-APP")
 	public Boolean loginCheckAPP(String username, String password, String token,HttpServletRequest req) {
@@ -134,7 +82,7 @@ public class AdminController {
 				//如果APP端打开了自动登录，前台传过来username和token
 				if(token!=null){
 					System.out.println("前台选择了自动保存");
-					admin.setRemark(token);
+					admin.setToken(token);
 					adminservice.setRemarkAsToken(admin);
 				}
 				System.out.println("更新session");
