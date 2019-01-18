@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhongying.crm.mapper.MenuMapper">
+
+
+	<select id="getWxInfoList" resultType="com.alibaba.fastjson.JSONObject">
+		SELECT u.id,u.title,u.content,u.createTime, u.type FROM(
+		(SELECT id,title,content,createTime,1 AS TYPE FROM regulation   ORDER BY createTime DESC LIMIT 2)
+		UNION
+		(SELECT id,title,content,createTime,2 AS TYPE FROM notice  WHERE STATUS = 1  ORDER BY createTime DESC)
+		)
+		u
+		ORDER BY u.type,u.createTime DESC
+	</select>
+
+</mapper>

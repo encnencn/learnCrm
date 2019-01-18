@@ -43,6 +43,8 @@ public class Admin extends BaseEntity {
 	//部门名称
 	@Transient
 	private String departmentname;
+	@Transient
+	private String oldPassword;
 	
 
 

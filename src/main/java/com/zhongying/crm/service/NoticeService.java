@@ -7,6 +7,7 @@ package com.zhongying.crm.service;
 
 import java.util.List;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,18 +54,22 @@ public class NoticeService {
 	}
 
 	public List<Notice> queryNotice1() {
-		// TODO Auto-generated method stub
+
 		return noticeMapper.queryNotice1();
 	}
 
 	public Notice queryLastNotice() {
-		// TODO Auto-generated method stub
+
 		return noticeMapper.queryLastNotice();
 	}
 
 	public Notice queryNoticeById(Integer id) {
-		// TODO Auto-generated method stub
+
 		return noticeMapper.queryNoticeById(id);
 	}
 
+	public JSONObject getWxInfoList() {
+
+		return noticeMapper.getWxInfoList();
+	}
 }

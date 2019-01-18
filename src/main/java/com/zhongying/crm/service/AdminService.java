@@ -2,6 +2,8 @@ package com.zhongying.crm.service;
 
 import java.util.List;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -77,7 +79,7 @@ public class AdminService {
 
 	public void deleteAdmin(Integer id) {
 		
-		adminmapper.deleteAdmin(id);
+		adminmapper.deleteByPrimaryKey(id);
 	}
 
 	public List<Admin> queryByTrueName(String name) {
@@ -90,8 +92,10 @@ public class AdminService {
 	}
 	//修改用户密码
 	public void updateNewPassword(Integer id, String newpassword) {
-
-		adminmapper.updateNewPassword(id,newpassword);
+		Admin record = new Admin();
+		record.setPassword(newpassword);
+		record.setId(id);
+		adminmapper.updateByPrimaryKey(record);
 	}
 
 	public Admin updateAdminView(Integer id) {
@@ -101,22 +105,33 @@ public class AdminService {
 
 	public void updateAdminSubmit(Admin admin) {
 
-		adminmapper.updateAdminSubmit(admin);
+		adminmapper.updateByPrimaryKey(admin);
 	}
 
 	public String selectPassById(Integer id) {
 		
-		return adminmapper.selectPassById(id);
+		return adminmapper.selectByPrimaryKey(id).getPassword();
 	}
 	
-	//APP登录成功之后存入token
+
+	/**
+	 * APP登录成功之后存入token
+	 *
+	 * @param admin
+	 * @return
+	 */
 	public Integer setRemarkAsToken(Admin admin) {
 
 		return  adminmapper.updateByPrimaryKeySelective(admin);
 	}
 
-	
 
+	/**
+	 * 根据token查询用户
+	 *
+	 * @param token
+	 * @return
+	 */
 	public Admin selectByToken(String token) {
 		if (StringUtils.isBlank(token)){
 			return null;
@@ -126,19 +141,32 @@ public class AdminService {
 		return adminmapper.selectOne(record);
 	}
 
+	/**
+	 * 根据姓名查询用户
+	 *
+	 * @param trueName
+	 * @return
+	 */
 	public Integer queryAdminIdByTruename(String trueName){
-		return adminmapper.queryAdminIdByTruename(trueName);
+
+		Admin record = new Admin();
+		record.setTrueName(trueName);
+
+		return adminmapper.selectOne(record).getId();
 	}
 
 
 	public Admin checkAdminName(String username) {
-		
-		return adminmapper.checkAdminName(username);
+		Admin record = new Admin();
+		record.setUsername(username);
+
+		return adminmapper.selectOne(record);
 	}
 
 	public String queryAdminById(int id) {
-	
-		return adminmapper.queryAdminById(id);
+
+		Admin admin = adminmapper.selectByPrimaryKey(id);
+		return admin.getUsername();
 	}
 
 	public Admin queryByusername(String username) {
@@ -155,4 +183,6 @@ public class AdminService {
 
 		return adminmapper.updateByPrimaryKey(admin);
 	}
+
+
 }

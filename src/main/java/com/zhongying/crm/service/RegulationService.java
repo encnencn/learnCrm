@@ -17,7 +17,6 @@ import com.zhongying.crm.model.Regulation;
 public class RegulationService {
 
 	@Autowired
-
 	private RegulationMapper regulationMapper;
 
 	public void saveRegulation(Regulation regulation) {
@@ -27,7 +26,7 @@ public class RegulationService {
 	}
 
 	public List<Regulation> queryAllRegulation() {
-		// TODO Auto-generated method stub
+
 		return regulationMapper.queryAllRegulation();
 	}
 
@@ -38,12 +37,12 @@ public class RegulationService {
 	}
 
 	public Regulation queryByRegulationTitle(String title) {
-		// TODO Auto-generated method stub
+
 		return regulationMapper.queryByRegulationTitle(title);
 	}
 
 	public Regulation queryRegulationById(Integer id) {
-		// TODO Auto-generated method stub
+
 		return regulationMapper.queryRegulationById( id);
 	}
 

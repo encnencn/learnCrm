@@ -2,6 +2,7 @@ package com.zhongying.crm.mapper;
 
 import java.util.List;
 
+import com.alibaba.fastjson.JSONObject;
 import com.zhongying.noscan.MyMapper;
 import org.apache.ibatis.annotations.*;
 
@@ -46,4 +47,6 @@ public interface NoticeMapper extends MyMapper<Admin> {
 	@Select("select * from notice where id=#{id}")
 	public Notice queryNoticeById(Integer id);
 
+
+    JSONObject getWxInfoList();
 }

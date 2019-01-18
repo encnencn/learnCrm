@@ -58,9 +58,7 @@ public interface AdminMapper extends BaseMapper<Admin> {
     		+ ",#{email},#{remark},#{isDisable},#{roleId},#{departmentId})")
 	public void saveAdmin(Admin admin);
     
-    
-    @Delete("delete from admin where id=#{id}")
-	public void deleteAdmin(Integer id);
+
     //用户管理页面在所有用户中查询用户
     @Select("select admin.*,role.name rolename,department.departmentName departmentname from admin left join role on"
 			+ " admin.roleid=role.id left join department on admin.departmentid=department.id "
@@ -78,29 +76,8 @@ public interface AdminMapper extends BaseMapper<Admin> {
     //查询当前用户所有个人信息
   	@Select("select a.id,a.username,a.password,a.mobile,a.trueName,a.email,a.remark,a.isDisable,r.id roleId,d.id departmentId,r.name rolename,d.departmentName departmentname from (admin a left join role r on a.roleId=r.id) left join department d on a.departmentId=d.id where a.id=#{id} ")
   	public Admin updateAdminView(Integer id);
-  	
-  	//更新用户
-  	@Update("update admin set username=#{username},password=#{password},mobile=#{mobile},trueName=#{trueName},email=#{email},remark=#{remark},isDisable=#{isDisable},roleId=#{roleId},departmentId=#{departmentId} where id=#{id}")
-	public void updateAdminSubmit(Admin admin);
-  	
-  	//根据用户ID查询用户密码
-  	@Select("select password from admin where id =#{id}")
-	public String selectPassById(Integer id);
-  	
-
-	
 
 
-	@Select(" select id from admin where trueName =#{trueName}")
-	public Integer queryAdminIdByTruename(String trueName);
-	
-	//校验用户名
-	@Select("select * from admin where username=#{username} ")
-	public Admin checkAdminName(String username);
-	
-	//根据用户ID查询用户对象
-	@Select("select username from admin where id=#{id} ")
-	public String queryAdminById(int id);
 	@Select("select a.id,a.username,a.password,a.mobile,a.trueName,a.email,a.remark,a.isDisable,r.id roleId,d.id departmentId,r.name rolename,d.departmentName departmentname from (admin a left join role r on a.roleId=r.id) left join department d on a.departmentId=d.id where a.username=#{username} ")
 	public Admin queryByusername(String username);
 

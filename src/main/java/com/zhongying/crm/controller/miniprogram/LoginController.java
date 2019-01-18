@@ -123,4 +123,45 @@ public class LoginController {
         result.put("message","退出登录");
         return result;
     }
+
+
+    /**
+     * 修改密码
+     *
+     * @param admin
+     * @return
+     */
+    @RequestMapping(value = "/updateInfo", method = RequestMethod.POST)
+    public JSONObject updateInfo(@RequestBody Admin admin) {
+        JSONObject result = new JSONObject();
+
+       Admin record  = adminService.selectByToken(admin.getToken());
+
+        if (record==null){
+            result.put("code",400);
+            result.put("message","登录信息不存在");
+            return result;
+        }
+        //校验旧密码
+        if (StringUtils.isBlank(admin.getOldPassword())||!record.getPassword().equals(admin.getOldPassword())){
+            result.put("code",400);
+            result.put("message","旧密码错误");
+            return result;
+        }
+        //校验新密码
+        if(StringUtils.isBlank(admin.getPassword())){
+            result.put("code",400);
+            result.put("message","新密码不能为空");
+            return result;
+        }
+
+        record.setPassword(admin.getPassword());
+        adminService.updateByPrimaryKey(admin);
+        result.put("code",200);
+        result.put("message","修改密码成功");
+        return result;
+    }
+
+
+
 }
