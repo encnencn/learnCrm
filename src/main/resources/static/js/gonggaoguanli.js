@@ -164,7 +164,7 @@ $(function () {
                         that.rights_allPage.text("显示" + nums + "条记录，共" + allPages + "条");
                         return str;
                     };
-
+                    signaturebytokens2
                     // 调用分页
                     laypage({
                         cont: 'rights_page',// 分页id

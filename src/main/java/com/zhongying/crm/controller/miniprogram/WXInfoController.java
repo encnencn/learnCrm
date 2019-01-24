@@ -8,6 +8,7 @@
  *********************************************/
 package com.zhongying.crm.controller.miniprogram;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.zhongying.crm.model.Admin;
 import com.zhongying.crm.service.AdminService;
@@ -27,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/wx")
-public class InfoController {
+public class WXInfoController {
 
     @Autowired
     AdminService adminService;
@@ -37,23 +38,16 @@ public class InfoController {
     /**
      * 按照时间排序查询规则及公告管理列表
      *
-     * @param admin
+     * @param
      * @return
      */
-    @RequestMapping( value = "/infoList", method = RequestMethod.POST)
-    public JSONObject infoList(@RequestBody Admin admin) {
+    @RequestMapping( value = "/infoList", method = RequestMethod.GET)
+    public JSONObject infoList() {
         JSONObject result = new JSONObject();
 
-        String token = admin.getToken();
-        admin  = adminService.selectByToken(token);
-
-        if (admin==null){
-            result.put("code",400);
-            result.put("message","登录信息不存在");
-            return result;
-        }
-
-        return noticeService.getWxInfoList();
+        result.put("code",200);
+        result.put("data", noticeService.getWxInfoList());
+        return result;
     }
 
 }

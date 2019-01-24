@@ -2,6 +2,7 @@ package com.zhongying.crm.mapper;
 
 import java.util.List;
 
+import com.alibaba.fastjson.JSONObject;
 import org.apache.ibatis.annotations.*;
 
 import com.zhongying.crm.model.Customer;
@@ -153,4 +154,7 @@ public interface CustomerMapper extends MyMapper<Customer>{
 
 	@Select("select customer.*,admin.truename from customer   LEFT JOIN admin ON customer.adminID=admin.ID where customer.status =1 and customer.customerCode  LIKE CONCAT(CONCAT('%',#{name},'%')) ")
     List<Customer> queryByCustomerCode(String name);
+
+	//微信端获取未审核的客户
+    JSONObject myNewCustomer(@Param("adminId") Integer adminId);
 }

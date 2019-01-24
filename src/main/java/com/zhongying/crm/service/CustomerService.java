@@ -2,6 +2,7 @@ package com.zhongying.crm.service;
 
 import java.util.List;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -96,7 +97,7 @@ public class CustomerService {
 	
 	//有效客户列表
 	public List<Customer> getEfficientList(Customer customer) {
-		// TODO Auto-generated method stub
+
 		return customermapper.getEfficientList(customer);
 	}
 
@@ -117,7 +118,7 @@ public List<Customer> getPersonalCustomerList1(Integer adminid) {
 	
 
 	public List<Customer> queryByCustomerName(String name) {
-		// TODO Auto-generated method stub
+
 		return customermapper.queryByCustomerName(name);
 	}
 	public Integer queryIdBycustomerName(String customerName){
@@ -131,22 +132,22 @@ public List<Customer> getPersonalCustomerList1(Integer adminid) {
 	
 	//查询当前用户所录客户
 	public List<Customer> searchCustomer_personal(String customername,Integer adminId) {
-		// TODO Auto-generated method stub
+
 		return customermapper.searchCustomer_personal(customername,adminId);
 	}
 
 	public List<Integer> searchCustomerId(String namechar) {
-		// TODO Auto-generated method stub
+
 		return customermapper.searchCustomerId(namechar);
 	}
 
 	public Customer queryByCustomerId(Integer id) {
-		// TODO Auto-generated method stub
+
 		return customermapper.queryByCustomerId(id);
 	}
 
 	public List<Customer> searchCustomerByStr(String customername) {
-		// TODO Auto-generated method stub
+
 		return customermapper.searchCustomerByStr(customername);
 	}
 
@@ -155,4 +156,10 @@ public List<Customer> getPersonalCustomerList1(Integer adminid) {
 
 		return customermapper.queryByCustomerCode(name);
 	}
+
+	//微信获取当前用户的新报备客户（未审核通过的客户）
+    public JSONObject myNewCustomer(Integer adminId) {
+
+		return customermapper.myNewCustomer(adminId);
+    }
 }

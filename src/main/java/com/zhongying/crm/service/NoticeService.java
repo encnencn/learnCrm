@@ -7,6 +7,7 @@ package com.zhongying.crm.service;
 
 import java.util.List;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -68,7 +69,7 @@ public class NoticeService {
 		return noticeMapper.queryNoticeById(id);
 	}
 
-	public JSONObject getWxInfoList() {
+	public JSONArray getWxInfoList() {
 
 		return noticeMapper.getWxInfoList();
 	}

@@ -2,6 +2,7 @@ package com.zhongying.crm.mapper;
 
 import java.util.List;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.zhongying.noscan.MyMapper;
 import org.apache.ibatis.annotations.*;
@@ -48,5 +49,5 @@ public interface NoticeMapper extends MyMapper<Admin> {
 	public Notice queryNoticeById(Integer id);
 
 
-    JSONObject getWxInfoList();
+	JSONArray getWxInfoList();
 }
